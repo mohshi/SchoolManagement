@@ -63,7 +63,7 @@ namespace SchoolManagement.Services
 
         public async Task<Course?> GetCourseAsync(int id)
         {
-            return await _db.Courses.Include(c => c.Enrollments).ThenInclude(e => e.Student).FirstOrDefaultAsync(c => c.Id == id);
+            return await _db.Courses.FindAsync(id);
         }
 
         public async Task<Course> AddCourseAsync(Course course)
